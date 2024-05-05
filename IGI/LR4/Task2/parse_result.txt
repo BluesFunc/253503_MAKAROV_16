@@ -1,0 +1,30 @@
+
+Changed text: Katherine Mansfield, an outstanding English sh$$$ story writer of the 20th century, was born in New Zealand in 1888 and died in 1923. She is the author of a number of excellent sh$$$ stories wh$$$ deal with hu$$$ nature and psychology.
+At the age of eighteen she decided to become a professional writer. Her fi$$$ short stories appeared in Melbourne in 1907, but literary fame came to her in London af$$$ the publication of a collection of sh$$$ stories called "In a German Pension".
+Katherine Mansfield took a gr$$$ interest in Russian literature, particularly in the wo$$$ of Chekhov. In fact, she considered herself to be a pu$$$ of the gr$$$ Russian writer.
+
+Rosemary Fell was not exactly beautiful. :-))) She was yo$$$  brilliant, extremely modern, well dressed and amazingly well read in the newest of the new bo$$$  Rosemary had been married two ye$$$  and her husband was very fond of her. They were rich, really rich, not just comfortably well-off, so if Rosemary wanted to shop, she wo$$$ go to Pa$$$ as you and I wo$$$ go to Bond Street.
+One winter afternoon she went into a sm$$$ shop to look at a little box wh$$$   09:12 the shopman had been keeping for her. He had sh$$$ it to nobody as yet so that she mi$$$ be the fi$$$ to see it.
+"Charming!" Rosemary admired the box. But how much wo$$$ he charge her for it? For a moment the shopman did not seem to hear. The lady co$$$ certainly afford a high pr$$$  Then his wo$$$ reached her, "Twenty-ei$$$ guineas, ma$$$ "
+"Twenty-ei$$$ guineas." Rosemary gave no sign. Even if one is rich... Her vo$$$ was dreamy as she answered: "Well, keep it for me, will you? I'll..." The shopman bo$$$  He wo$$$ be willing of course, to keep it for her forever.
+Outside rain was falling, th$$$ was a cold, bitter ta$$$ in the air, and the ne$$$ lighted la$$$ looked sad... At that very moment a yo$$$ girl, thin, dark, appeared at Rosemary's el$$$ and a vo$$$  like a sigh, breathed: "Ma$$$  may I sp$$$ to you a moment?"
+
+Narrative Sentences: 29
+
+Sentence Count: 33
+
+Interrogative Sentences: 3
+
+Smileys Count: 1
+
+Imperative Sentences: 1
+
+Average Sentence Length: 69.03571428571429
+
+Time count: 1
+
+Max length word count: 2
+
+Longest word end's on e: literature
+
+Words before comma or dot: ['Mansfield,', 'century,', '1923.', 'psychology.', 'writer.', '1907,', 'literature,', 'Chekhov.', 'fact,', 'writer.', 'beautiful.', 'young,', 'brilliant,', 'modern,', 'books.', 'years,', 'her.', 'rich,', 'rich,', 'off,', 'shop,', 'Street.', 'her.', 'it.', 'box.', 'hear.', 'price.', 'her,', 'guineas,', 'madam.', 'guineas.', 'sign.', 'rich.', 'Well,', 'me,', 'll.', 'bowed.', 'course,', 'forever.', 'falling,', 'cold,', 'air,', 'sad.', 'girl,', 'thin,', 'dark,', 'voice,', 'sigh,', 'Madam,']

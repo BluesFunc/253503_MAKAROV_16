@@ -10,7 +10,7 @@ pupil_data = [{"Surname": "Makarov", "Specialization": "Rock", "Instrument": "Ba
               {"Surname": "Armen", "Specialization": "Folk", "Instrument": "Cymbals"},
               ]
 
-headers = ["Surname", "Instrument", "Specialization"]
+Specialization = {"Opera", "Folk", "Orchestra", "Traditional"}
 
 
 def input_string(input_prompt, valid_data: set = None):
@@ -26,11 +26,20 @@ def main():
 
 if __name__ == "__main__":
     file_name = None
-    while (file_name := input_string("Input file type [bin or csv]:  ")) is None:
-        pass
+    while (file_name := input_string("Input file type [bin or csv]:  ", {'bin', 'csv'})) is None:
+        print('Choose correct file type')
 
     manger = BinManager('exams.' + file_name)
 
-    manger.write_by_spec(pupil_data, 'Traditional')
-    pupil = manger.read_pupil_by_surname("Vlados")
-    print(pupil)
+    spec = None
+    while (spec := input_string(f"Enter specialization name [{','.join(Specialization)}]: ", Specialization)) is None:
+        print('Choose correct specialization name')
+    manger.write_by_spec(pupil_data, spec)
+
+    surname = input("Write student's surname: ")
+    pupil = manger.read_pupil_by_surname(surname)
+
+    if pupil is None:
+        print(f"{surname} did not write {spec}'s exam")
+    else:
+        print(pupil)
