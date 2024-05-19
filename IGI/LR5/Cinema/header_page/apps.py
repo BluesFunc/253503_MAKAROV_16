@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class CinemaAuthConfig(AppConfig):
+class HeaderPageConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'cinema_auth'
+    name = 'header_page'

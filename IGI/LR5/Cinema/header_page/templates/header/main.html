@@ -1,0 +1,13 @@
+{%extends "base.html" %}
+{% block head_text %}
+<h1> Кинотеатр "Подосиновик"</h1>
+{% endblock head_text %}
+
+{% block main_content%}
+{% if news %}
+    <h2>{{news.header}}</h2>
+    <p>{{news.description}}</p>
+{% endif %}
+<img src="{{news.image_url}}" width="100%">
+
+{%endblock main_content%}

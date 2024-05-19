@@ -1,0 +1,16 @@
+{%extends "base.html" %}
+{% block head_text %}
+<h1>Купоны</h1>
+{% endblock head_text %}
+
+{% block main_content%}
+<ul>
+  {%for coupon in coupons %}
+  <li>
+    <h2>Промокод</h2>
+    <h3>-{{coupon.code}}</h3>
+    <h3>Скидка {{coupon.discount}}%</h3>
+  </li>
+  {% endfor %}
+</ul>
+{%endblock main_content%}

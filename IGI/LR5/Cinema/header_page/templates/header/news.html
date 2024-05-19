@@ -1,0 +1,14 @@
+{%extends "base.html" %}
+{% block head_text %}
+<h1> Свежие новости</h1>
+{% endblock head_text %}
+
+{% block main_content%}
+{%if newses%}
+{% for news in newses%}
+<h2>{{news.header}}</h2>
+<p>{{news.description}}</p>
+<img src="{{news.image_url}}" width="100%">
+{% endfor%}
+{% endif %}
+{%endblock main_content%}

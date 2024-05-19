@@ -31,7 +31,8 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'cinema_auth.apps.CinemaAuthConfig',
+    'header_page.apps.HeaderPageConfig',
+    'cinema_logic.apps.CinemaLogicConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -78,7 +79,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'Cinema',
-        'USER': 'bass-n-cripp',
+        'USER': 'Alex',
         'PASSWORD': '1234',
         "HOST": 'localhost',
         'PORT': '5432'
