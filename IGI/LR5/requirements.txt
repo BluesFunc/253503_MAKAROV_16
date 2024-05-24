@@ -1,3 +1,6 @@
 django
 psycopg
 psycopg2
+numpy
+matplotlib
+requests

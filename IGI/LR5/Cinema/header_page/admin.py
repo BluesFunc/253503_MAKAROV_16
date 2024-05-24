@@ -3,9 +3,8 @@ from .models import (CompanyInfo, News, FAQ,
                      EmployeesContact, VacancyInfo, Review,
                      Coupon)
 
-
 admin.site.register(
-    [CompanyInfo, News, FAQ,
+    [News, FAQ,
      EmployeesContact, VacancyInfo,
      Review, Coupon]
 )

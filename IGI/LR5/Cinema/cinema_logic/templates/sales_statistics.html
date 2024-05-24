@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main_content %}
+  <h2>Статистика продаж билетов</h2>
+
+  <p>Общее количество проданных билетов: {{ total_tickets }}</p>
+  <p>Среднее количество проданных билетов в день: {{ average_tickets_sold }}</p>
+  <p>Медиана проданных билетов в день: {{ median_tickets_sold }}</p>
+  <p>Стандартное отклонение проданных билетов: {{ std_dev_tickets_sold }}</p>
+  <p>Самый популярный фильм: {{ most_popular_movie.name }}</p>
+
+  <img src="{% static image_path %}" alt="Статистика продаж">
+{% endblock %}

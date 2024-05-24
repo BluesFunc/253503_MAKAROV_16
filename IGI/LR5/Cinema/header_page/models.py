@@ -3,6 +3,7 @@ import datetime
 from django.db import models
 from django.shortcuts import reverse
 from django.core.validators import MaxValueValidator, MinValueValidator
+from django.utils import timezone
 
 
 class CompanyInfo(models.Model):
@@ -10,10 +11,10 @@ class CompanyInfo(models.Model):
 
 
 class News(models.Model):
-    header = models.CharField(max_length=100)
-    description = models.TextField(max_length=300)
-    image_url = models.URLField()
-    post_date = models.DateField(default=datetime.date.today())
+    header = models.TextField()
+    description = models.TextField(max_length=500)
+    image_url = models.URLField(max_length=255, blank=True, null=True)
+    post_date = models.DateField(default=timezone.now)
 
     def __str__(self):
         return self.header
@@ -79,9 +80,9 @@ class Review(models.Model):
 
 
 class Coupon(models.Model):
-    code = models.CharField()
-    discount = models.IntegerField(validators=[
-        MaxValueValidator(99), MinValueValidator(1)
-    ])
+    code = models.CharField(max_length=20, unique=True)
+    discount = models.DecimalField(max_digits=5, decimal_places=2)  # Процент скидки
+    is_active = models.BooleanField(default=True)
 
-
+    def __str__(self):
+        return self.code
