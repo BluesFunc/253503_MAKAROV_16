@@ -30,10 +30,11 @@ def about_page(request):
 def update_news():
     api_key = '4f2ae5f80db84146ace22add8c9cc9be'
     articles = fetch_news(api_key)
-
     for article in articles[:10]:
-        if description := article.get('description') is None:
-            description = 'Подробности отсутствуют'
+        if article.get('description') is None:
+            description = "Подробности отсувтсуют"
+        else:
+            description = article.get('description')
         News.objects.update_or_create(
             header=article.get('title'),
             defaults={
@@ -51,6 +52,7 @@ def news_list(request):
         update_news()
         news_articles = News.objects.all().order_by('-post_date')[:10]
         cache.set('news_articles', news_articles, 60 * 60)
+
     return render(request, 'header/news.html', {'news_articles': news_articles})
 
 

@@ -2,9 +2,13 @@
 
 {% block main_content %}
   <h2>Купить билеты на {{ show.movie.name }}</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Купить">
-  </form>
+  {% if tickets %}
+    <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Купить">
+    </form>
+  {% else %}
+    <p>На этот сеанс свободных билетов нету</p>
+  {% endif %}
 {% endblock %}

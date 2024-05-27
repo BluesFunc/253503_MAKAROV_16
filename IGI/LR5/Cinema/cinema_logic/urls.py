@@ -5,7 +5,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("login", views.login_form, name='login'),
+    path("login", views.login_user, name='login'),
     path('logout', views.logout_user, name='logout'),
     path("registration", views.register_form, name='register'),
     path("reg", views.register_user, name='reg'),
@@ -19,9 +19,7 @@ urlpatterns = [
     path('statistics/', views.sales_statistics, name='ticket_statistics'),
     path('employee/', views.employee_page, name='employee_page'),
     path('orders/', views.user_orders, name='user_orders'),
-    path('shows/<int:show_id>/tickets/', views.show_order_tickets, name='show_tickets'),
-    path("auth", views.login_user, name='auth')
-]
+    path('shows/<int:show_id>/tickets/', views.show_order_tickets, name='show_tickets'), ]
 
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

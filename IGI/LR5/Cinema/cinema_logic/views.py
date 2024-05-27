@@ -40,23 +40,26 @@ def is_employee(user):
     return not is_customer(user)
 
 
-def login_form(request):
-    return render(request, 'login.html', {"login_form": LoginForm})
-
-
 def register_form(request):
     return render(request, 'register.html', {"register_form": RegisterForm})
 
 
 def login_user(request):
-    username = request.POST['username']
-    password = request.POST['password']
-    user = authenticate(request, username=username, password=password)
-    if user is not None:
-        login(request, user)
-        return redirect('main')
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('main')  # Перенаправление на главную страницу после успешного входа
+        else:
+            form.add_error(None, "Неверное имя пользователя или пароль.")
     else:
-        return redirect('login')
+        form = LoginForm()
+
+    return render(request, 'login.html', {'form': form})
 
 
 def register_user(request):

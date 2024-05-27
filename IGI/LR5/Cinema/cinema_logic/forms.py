@@ -1,11 +1,22 @@
 from django import forms
+from django.core.validators import RegexValidator
+
 from .models import Ticket, Movie
 from header_page.models import Coupon
 
+import re
+
 
 class LoginForm(forms.Form):
-    username = forms.CharField()
+    username = forms.CharField(min_length=7)
     password = forms.CharField(widget=forms.PasswordInput)
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        # Регулярное выражение для проверки логина (например, только буквы и цифры)
+        if not re.match(r'^[a-zA-Z0-9]+$', username):
+            raise forms.ValidationError("Логин может содержать только буквы и цифры.")
+        return username
 
 
 class RegisterForm(forms.Form):
