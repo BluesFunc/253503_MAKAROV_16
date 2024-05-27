@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head_text %}
+  <h1>Отзывы</h1>
+{% endblock head_text %}
+
+{% block main_content %}
+  {% if user.is_authenticated and user.groups.get.name == 'Customer'%}
+     <a href="{% url 'add_review' %}">Добавить отзыв</a>
+  {% endif %}
+  <ul>
+    {% for review in reviews %}
+      <li>
+        <h2>{{ review.issuer }}</h2>
+        <h3>Оценка: {{ review.mark }}</h3>
+        <p>{{ review.review_text }}</p>
+        <strong>{{ review.post_data }}</strong>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock main_content %}

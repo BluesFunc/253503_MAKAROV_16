@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+{%block head_text%}
+<h2>Заргестрироваться </h2>
+{%endblock head_text%}
+{%block main_content%}
+<form action="{% url  'reg'%}" method="post" autocomplete=off>
+  {%csrf_token%}
+  {{register_form}}
+  <button type="submit">Зарегестрироваться</button>
+</form>
+<a href="{% url 'login'  %}">Уже есть аккаунт?</a>
+{%endblock main_content%}

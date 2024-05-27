@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+  <h1>{{ show.movie.name }}</h1>
+  <p>Описание: {{ show.movie.description }}</p>
+  <p>Жанр: {{ show.movie.genre }}</p>
+  <p>Продолжительность: {{ show.movie.duration }}</p>
+  <p>Рейтинг: {{ show.movie.rating }}</p>
+  <p>Дата и время показа: {{ show.film_date }}</p>
+
+  <h2>Доступные билеты</h2>
+  <ul>
+    {% for ticket in tickets %}
+      <li>Место: {{ ticket.place }} - Цена: {{ ticket.price }} рублей</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'purchase_tickets' show.id %}">Купить билеты</a>
+{% endblock %}
