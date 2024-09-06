@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+  <h2>Список фильмов</h2>
+  <a href="{% url 'add_movie' %}" >Добавить</a>
+  <ul>
+    {% for movie in movies %}
+      <li>{{ movie.name }}
+        <a href="{% url 'edit_movie' movie.id%}">Изменить</a>
+        <a href="{% url 'delete_movie' movie.id%}">Удалить</a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

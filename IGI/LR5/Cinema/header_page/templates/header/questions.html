@@ -1,0 +1,17 @@
+{%extends "base.html" %}
+{% block head_text %}
+<h1>FAQ</h1>
+{% endblock head_text %}
+
+{% block main_content%}
+<ul>
+  {%for question in questions %}
+  <li>
+    <h2>{{question.issuer}}</h2>
+    <p>{{question.question_text}}?</p>
+    <p>{{question.answer_text}}!</p>
+    <strong>{{question.answer_date}}</strong>
+  </li>
+  {% endfor %}
+</ul>
+{%endblock main_content%}

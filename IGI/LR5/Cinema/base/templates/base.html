@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+      div {
+          width: 70%;
+      }
+  </style>
+
+</head>
+<body>
+<header>
+  <a href="{% url 'main' %}">Главная</a>
+  <a href="{% url 'about' %}">О Компании</a>
+  <a href="{% url 'news' %}">Новости</a>
+  <a href="{% url 'FAQ' %}">FAQ</a>
+  <a href="{% url 'contacts' %}">Контакты</a>
+  <a href="{% url 'policy' %}">Политика конфиденциальности</a>
+  <a href="{% url 'vacancy' %}">Вакансии</a>
+  <a href="{% url 'reviews' %}">Отзывы</a>
+  <a href="{% url 'coupons' %}">Промокоды и Купоны</a>
+  <a href="{%url 'show_list'%}">Сеансы</a>
+</header>
+{%if user.is_authenticated%}
+<span>
+        <span>
+          {%if user.groups.get.name == 'Customer'%}
+          <a href="{%url 'user_orders'%}">{{user.get_username}}</a>
+          {%elif user.groups.get.name == 'Employee'%}
+          <a href="{%url 'employee_page'%}">{{user.get_username}}</a>
+          <a href="{%url 'movie_list'%}">Movies</a>
+          <a href="{%url 'ticket_statistics'%}">Statistics</a>
+          {%else%}
+          <a href="/admin">{{user.get_username}}</a>
+          {%endif%}
+          <a href="{%url 'logout'%}">Выйти</a>
+        </span>
+      </span>
+{%else%}
+<a href="{%url 'login'%}">Войти</a>
+{%endif%}
+{% block head_text %}{% endblock head_text %}
+
+<div>
+  {%block main_content %}
+  {% endblock main_content%}
+</div>
+</body>
+</html>

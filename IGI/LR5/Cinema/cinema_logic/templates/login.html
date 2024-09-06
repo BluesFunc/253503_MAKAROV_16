@@ -1,0 +1,18 @@
+gi{% extends 'base.html' %}
+{% block head_text %}
+  <h2>Войти</h2>
+{% endblock head_text %}
+{% block main_content %}
+  <form method="post" autocomplete="off">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% for error in form.non_field_errors %}
+      <p style="color: red;">{{ error }}</p>
+    {% endfor %}
+    <button type="submit">Войти</button>
+  </form>
+  <a href="{% url 'register' %}">Уже еще нет аккаунта?</a>
+  {% if message %}
+    <p>{{ message }}</p>
+  {% endif %}
+{% endblock main_content %}

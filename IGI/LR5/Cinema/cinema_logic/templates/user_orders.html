@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+<h2>Ваши заказы</h2>
+{% if shows %}
+<ul>
+  {% for show, tickets in shows.items %}
+  <li>
+    Сеанс: {{ show.movie.name }} - {{ show.film_date }}
+    <a href="{% url 'show_tickets' show.id %}">Просмотреть билеты</a>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>У вас нет заказов.</p>
+{% endif %}
+{% endblock %}

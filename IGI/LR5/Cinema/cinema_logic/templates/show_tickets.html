@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+  <h2>Билеты на сеанс: {{ show.movie.name }} - {{ show.film_date }}</h2>
+  <ul>
+    {% for ticket in tickets %}
+      <li>Ряд: {{ ticket.place.row }}, Место: {{ ticket.place.place }}, Цена: {{ ticket.price }} рублей</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
