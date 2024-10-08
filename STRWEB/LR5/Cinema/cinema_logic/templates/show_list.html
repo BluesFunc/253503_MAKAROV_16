@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block main_content %}
+  <h1>Сеансы</h1>
+  <ul>
+    {% for show in shows %}
+      <li>
+        <a href="{% url 'show_detail' show.id %}">{{ show.movie.name }} в {{ show.hall.hall_number }} на {{ show.film_date }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+{%endblock main_content%}
