@@ -1,0 +1,22 @@
+{%extends "base.html" %}
+{% block head_text %}
+<h1>Наши сотрудники</h1>
+{% endblock head_text %}
+
+{% block main_content%}
+{%if contacts%}
+<ul>
+  {% for contact in contacts%}
+  <li>
+    <h2>{{contact.name}}</h2>
+    <h3>{{contact.position}}</h3>
+    <p>{{contact.duties}}</p>
+    <h4>{{contact.mail}}</h4>
+    <h4>{{contact.phone_number}}</h4>
+    <img src="{{contact.photo_url}}" width="50%">
+  </li>
+  {% endfor%}
+</ul>
+{% endif %}
+
+{%endblock main_content%}

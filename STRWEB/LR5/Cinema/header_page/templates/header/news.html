@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block head_text %}
+    <h1> Свежие новости</h1>
+{% endblock head_text %}
+
+{% block main_content %}
+    {% if news_articles %}
+        <ul>
+            {% for news in news_articles %}
+                <li>
+                    <h2>{{ news.header }}</h2>
+                    <img src="{{ news.image_url }}" width="100%"/>
+                    <a  href="{% url 'news_page'  news.id %}">
+                        <button> Читать далее</button>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock main_content %}

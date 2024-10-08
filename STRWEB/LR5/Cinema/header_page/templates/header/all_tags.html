@@ -1,0 +1,205 @@
+{% extends "base.html" %}
+
+<main>
+    {% block head_text %}
+        <header>
+            <h1>Пример HTML-страницы со всеми тегами</h1>
+        </header>
+    {% endblock head_text %}
+    {% block main_content %}
+        <nav itemscope itemtype="https://schema.org/Place">
+            <ul >
+                <li ><a href="#section1">Заголовки и абзацы</a></li>
+                <li><a href="#section2">Списки</a></li>
+                <li><a href="#section3">Таблицы</a></li>
+                <li><a href="#section4">Формы</a></li>
+                <li><a href="#section5">Медиа и разное</a></li>
+            </ul>
+        </nav>
+
+        <section id="section1">
+            <h2>Заголовки и абзацы</h2>
+            <h1>Заголовок H1</h1>
+            <h2>Заголовок H2</h2>
+            <h3>Заголовок H3</h3>
+            <h4>Заголовок H4</h4>
+            <h5>Заголовок H5</h5>
+            <h6>Заголовок H6</h6>
+
+            <p>Это пример обычного абзаца текста.</p>
+            <p><strong>Жирный текст</strong> и <em>курсивный текст</em>.</p>
+            <blockquote>Это цитата в блоке.</blockquote>
+            <p>Пример <abbr title="Hypertext Markup Language">HTML</abbr> аббревиатуры.</p>
+        </section>
+
+        <section id="section2">
+            <h2>Списки</h2>
+            <h3>Нумерованный список</h3>
+            <ol>
+                <li>Пункт 1</li>
+                <li>Пункт 2</li>
+                <li>Пункт 3</li>
+            </ol>
+
+            <h3>Маркированный список</h3>
+            <ul>
+                <li>Элемент A</li>
+                <li>Элемент B</li>
+                <li>Элемент C</li>
+            </ul>
+
+            <h3>Список определений</h3>
+            <dl>
+                <dt>HTML</dt>
+                <dd>Язык гипертекстовой разметки</dd>
+                <dt>CSS</dt>
+                <dd>Каскадные таблицы стилей</dd>
+            </dl>
+        </section>
+
+        <section id="section3">
+            <h2>Таблицы</h2>
+            <table border="1">
+                <caption>Пример таблицы</caption>
+                <thead>
+                <tr>
+                    <th id="id1">Заголовок 1</th>
+                    <th>Заголовок 2</th>
+                    <th>Заголовок 3</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Ячейка 2</td>
+                    <td headers="id1">Ячейка 1</td>
+                    <td>Ячейка 3</td>
+                </tr>
+                <tr>
+                    <td>Ячейка 4</td>
+                    <td>Ячейка 5</td>
+                    <td>Ячейка 6</td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="3">Подвал таблицы</td>
+                </tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <section id="section4">
+            <h2>Формы</h2>
+
+            <form method="post">
+                {% csrf_token %}
+                <label for="text">Текстовое поле:</label>
+                <input type="text" id="text" name="text"><br><br>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"><br><br>
+
+                <label for="password">Пароль:</label>
+                <input type="password" id="password" name="password"><br><br>
+
+                <label for="file">Файл:</label>
+                <input type="file" id="file" name="file"><br><br>
+
+                <label for="number">Число:</label>
+                <input type="number" id="number" name="number" min="1" max="10"><br><br>
+
+                <label for="range">Диапазон:</label>
+                <input type="range" id="range" name="range" min="0" max="100"><br><br>
+
+                <label>Пол:</label>
+                <input type="radio" id="male" name="gender" value="male">
+                <label for="male">Мужской</label>
+                <input type="radio" id="female" name="gender" value="female">
+                <label for="female">Женский</label><br><br>
+
+                <label for="interests">Интересы:</label><br>
+                <input type="checkbox" id="movies" name="interest" value="movies">
+                <label for="movies">Кино</label><br>
+                <input type="checkbox" id="music" name="interest" value="music">
+                <label for="music">Музыка</label><br><br>
+
+                <label for="comments">Комментарий:</label><br>
+                <textarea id="comments" name="comments"></textarea><br><br>
+
+                <label for="color">Выберите цвет:</label>
+                <input type="color" id="color" name="color"><br><br>
+
+                <label for="date">Выберите дату:</label>
+                <input type="datetime-local" id="date" name="date"><br><br>
+
+                <label>Выбор?</label>
+                <select id="select" name="selection">
+                    <option value="1">Один</option>
+                    <option value="2">Один</option>
+                    <option value="3">Один</option>
+                </select>
+                <button type="submit">Отправить</button>
+                <input type="reset" value="Сброс">
+            </form>
+        </section>
+
+        <section id="section5">
+
+            <h2>Медиа и разное</h2>
+            <p itemprop="genre">
+        Poem
+    </p>
+    <p>
+        Poem's line 1. <br />
+        Poem's line 2. <br />
+        Poem's line 3. <br />
+        Poem's line 4. <br />
+    </p>
+    <p>
+        Poem's line 5. <br />
+        Poem's line 6. <br />
+        Poem's line 7. <br />
+        Poem's line 8. <br />
+    </p>
+            <h3>Изображение</h3>
+            <img src="/static/PAPA.jpg"  width="30%" alt="Пример изображения">
+
+            <h3>Видео</h3>
+            <video width="320" height="240" controls>
+                <source src="/static/Buter.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+
+            <h3>Фигура</h3>
+            <figure>
+                <img src="https://yt3.googleusercontent.com/dHrViEm3QVBw7LRfK5mAX7U8OSFd1rleRaMpuT_TpXUUZecFreikpPyzdK4I0kMES82awcsb8Q=s900-c-k-c0x00ffffff-no-rj"
+                     alt="Elephant at sunset"
+                width="30%"/>
+                <figcaption>Ребят, смотрите я черешня</figcaption>
+            </figure>
+
+            <h3>Аудио</h3>
+            <audio controls>
+                <source src="/static/GDE_PAPA.mp3" type="audio/mpeg">
+                Ваш браузер не поддерживает аудио.
+            </audio>
+
+            <h3>Встраивание iframe</h3>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/ejda6cMXF2s" frameborder="0"
+                    allow=fullscreen"></iframe>
+
+            <h3>Кнопки и ссылки</h3>
+            <button>Кнопка</button>
+            <a href="https://example.com">Ссылка на другой сайт</a>
+
+        <q>Циатат</q>
+        <blockquote cite="on">
+            Блок цитаты
+        </blockquote>
+        </section>
+
+        <footer>
+            <p>© 2024 Все права защищены</p>
+        </footer>
+        </main>
+    {% endblock main_content %}

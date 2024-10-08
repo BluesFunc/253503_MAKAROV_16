@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block head_text %}
+    <h1> Кинотеатр "Подосиновик" </h1>
+{% endblock head_text %}
+
+{% block main_content %}
+    <em>
+        {{ about.about }}
+    </em>
+    <dl>
+        <dt><strong>2003</strong>
+        </dt>
+        <dd>
+            "{{ about.history }}"
+            <cite>Директоров А. С. </cite>
+        </dd>
+    </dl>
+
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/lfL0Hmqt3DM" frameborder="0"
+            allow="fullscreen"></iframe>
+    <img src="{{ about.logo_url }}" />
+
+    <h2>Наши реквизиты</h2>
+    <ul>
+        <li>{{ about.mail }}</li>
+    </ul>
+
+    <h2>Сертификат</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0" width="100%">
+        <tr>
+            <td align="center" colspan="2">
+                <h1>СВИДЕТЕЛЬСТВО О РЕГИСТРАЦИИ</h1>
+                <p>в реестре белорусского кинематографа</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">
+                <h2>Кинотеатр "Подосиновик"</h2>
+                <p>Настоящим подтверждается, что кинотеатр "Подосиновик" внесён в реестр белорусского кинематографа</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="right">Регистрационный номер:</td>
+            <td>BY-12345678</td>
+        </tr>
+        <tr>
+            <td align="right">Дата регистрации:</td>
+            <td>25 сентября 2024</td>
+        </tr>
+        <tr>
+            <td align="right">Наименование органа регистрации:</td>
+            <td>Министерство культуры Республики Беларусь</td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">
+                <p>Данное свидетельство действительно на всей территории Республики Беларусь.</p>
+            </td>
+        </tr>
+        <tr>
+            <td align="center" colspan="2">
+                <p>Подпись уполномоченного лица: Студеничник Н.И.</p>
+                <p>Печать: <img
+                        src="https://podolsk.rev-pro.ru/wp-content/uploads/2020/06/Печать-СССР-с-гербом-700x664_c.jpg"
+                        width="30%"></p>
+            </td>
+        </tr>
+    </table>
+{% endblock main_content %}
