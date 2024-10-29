@@ -1,0 +1,924 @@
+html {
+    --main-bg-color:  rgb(254,59,117);
+    --alt-text-color:  rgb(34, 34, 34);
+}
+
+.user-block {
+    color: var(--alt-text-color);
+}
+
+button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgb(254, 59, 117); /* Яркая кнопка покупки */
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+
+
+body{
+    background-color: var(--main-bg-color);
+    color: rgb(255, 255, 255);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+}
+
+main {
+    padding: 50px;
+}
+
+.main_news {
+    position: static;
+}
+
+.text-fragment {
+    padding: 15px; /* Padding inside the text block */
+    margin: 20px 0; /* Margin around the text block */
+    line-height: 1.6; /* Line spacing */
+    text-align: justify; /* Justify text alignment */
+    word-spacing: 0.2em; /* Space between words */
+    letter-spacing: 0.05em; /* Space between letters */
+    font-family: 'Arial', sans-serif; /* Font family */
+    font-size: 16px; /* Base font size */
+}
+
+/* Headings with text-transform */
+h1, h2, h3, h4 {
+    text-transform: uppercase; /* Transform text to uppercase */
+    margin-bottom: 10px; /* Margin below headings */
+}
+
+/* Red paragraph indent */
+p {
+    text-indent: 30px; /* First line indent */
+}
+
+/* Capitalized fragment */
+.capitalized {
+    font-variant: small-caps; /* Use small caps */
+    font-size: 1.1em; /* Slightly larger font size */
+}
+
+/* Word wrapping and breaking */
+.word-wrap-example {
+    word-wrap: break-word; /* Break long words onto the next line */
+}
+
+/* Additional styles for special cases */
+.special-text {
+    font-weight: bold; /* Bold text */
+    color: #fe3b75; /* Main color for emphasis */
+    border: 1px solid #ccc; /* Optional border for emphasis */
+    padding: 10px; /* Padding for emphasis */
+}
+
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Основные стили для фиксированного header */
+header {
+    position: fixed; /* Фиксируем header */
+    top: 0;
+    width: 100%;
+    background-color: rgb(245, 245, 245); /* Светло-серый фон */
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Лёгкая тень для эффекта */
+    z-index: 1000; /* Убедимся, что header находится поверх других элементов */
+}
+
+
+header .logo {
+    display: flex;
+    justify-content: space-between;
+}
+
+header .logo img {
+    height: 50px; /* Задаём размер логотипа */
+}
+
+/* Стили для навигационного меню */
+nav {
+    display: flex;
+    gap: 15px; /* Расстояние между ссылками */
+}
+
+nav a {
+    font-size: 15px;
+    color: rgb(34, 34, 34); /* Почти чёрный цвет текста для хорошей читаемости */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 8px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s; /* Плавный переход при наведении */
+    
+}
+
+/* Эффекты при наведении на ссылки */
+nav a:hover {
+    cursor:pointer;
+    background-color: rgb(254, 59, 117); /* Яркий розово-красный цвет при наведении */
+    color: rgb(255, 255, 255); /* Белый текст для контраста */
+}
+
+/* Стили для ссылки "Войти", которая выглядит как кнопка */
+.login-button {
+    background-color: rgb(254, 59, 117); /* Яркий розово-красный фон кнопки */
+    color: rgb(255, 255, 255); /* Белый текст */
+    text-decoration: none; /* Убираем подчеркивание */
+    padding: 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s; /* Плавный переход при наведении */
+}
+
+.login-button:hover {
+    background-color: rgb(34, 193, 195); /* Бирюзовый цвет при наведении */
+}
+
+.partners-container {
+    display: flex;
+    flex-wrap: wrap; /* Делаем так, чтобы блоки переносились на следующую строку при недостатке места */
+    gap: 20px; /* Расстояние между блоками */
+    justify-content: center; /* Центрируем блоки по горизонтали */
+    padding: 20px;
+}
+
+/* Стили для каждого блока компании */
+.partner-block {
+    width: 150px; /* Задаём фиксированную ширину и высоту для круглой формы */
+    height: 150px;
+    background-color: rgb(245, 245, 245); /* Цвет фона блока */
+    border: 2px solid rgb(254, 59, 117); /* Цвет и толщина границы */
+    border-radius: 50%; /* Круглая форма блока */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень для придания объёма */
+    transition: transform 0.3s, box-shadow 0.3s; /* Плавный переход для эффекта при наведении */
+}
+
+.partner-block:hover {
+    transform: scale(1.1); /* Увеличиваем размер блока при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Усиливаем тень при наведении */
+}
+
+.partner-block a {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
+/* Стили для логотипов компаний внутри блоков */
+.partner-block img {
+    max-width: 70%; /* Логотип занимает 80% от блока */
+    max-height: 70%; /* Сохраняем пропорции логотипа */
+    object-fit: contain; /* Убедимся, что логотип вписывается в круг */
+}
+
+.catalog-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Автоматическая настройка колонок */
+    gap: 20px; /* Расстояние между карточками */
+    padding: 20px;
+}
+
+/* Стили для каждой карточки */
+.catalog-item {
+    background-color: rgb(245, 245, 245); /* Светлый фон карточки */
+    border: 1px solid rgb(200, 200, 200); /* Лёгкая граница для отделения */
+    border-radius: 8px; /* Скруглённые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+    padding: 15px;
+    transition: transform 0.3s, box-shadow 0.3s; /* Эффект при наведении */
+}
+
+.catalog-item:hover {
+    transform: scale(1.05); /* Лёгкое увеличение при наведении */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Усиленная тень при наведении */
+}
+
+/* Стили для текста внутри карточки */
+.catalog-item .item-info {
+    text-align: center;
+}
+
+.catalog-item .item-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0 0 10px;
+    color: rgb(34, 34, 34);
+}
+
+.catalog-item .item-description {
+    font-size: 14px;
+    color: rgb(80, 80, 80);
+    margin: 0 0 10px;
+}
+
+.catalog-item .item-price {
+    font-size: 16px;
+    color: rgb(254, 59, 117); /* Основной цвет для выделения цены */
+    font-weight: bold;
+}
+
+.catalog-item .item-button {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: rgb(254, 59, 117); /* Яркая кнопка покупки */
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+    transition: background-color 0.3s;
+}
+
+.catalog-item .item-button:hover {
+    background-color: rgb(34, 193, 195); /* Изменение цвета кнопки при наведении */
+    cursor: pointer; /* Изменение курсора на pointer */
+}
+
+/* Изменение курсора на pointer для всех ссылок и кнопок при наведении */
+a:hover, button:hover {
+    cursor: pointer;
+}
+
+
+.login-form-container {
+    color: var(--alt-text-color);
+    max-width: 400px; /* Максимальная ширина формы */
+    margin: 0 auto; /* Центрирование формы */
+    padding: 20px;
+    background-color: rgb(245, 245, 245); /* Светлый фон для формы */
+    border: 1px solid rgb(200, 200, 200); /* Лёгкая граница */
+    border-radius: 10px; /* Скруглённые углы */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Небольшая тень */
+}
+
+/* Стили для каждого поля ввода */
+.login-form-container input[type="text"],
+.login-form-container input[type="password"] {
+    width: 100%; /* Полная ширина */
+    padding: 10px;
+    margin: 10px 0; /* Отступы сверху и снизу */
+    border: 1px solid rgb(200, 200, 200); /* Цвет границы */
+    border-radius: 5px; /* Скруглённые углы */
+    transition: border-color 0.3s, box-shadow 0.3s; /* Плавный переход для фокуса */
+}
+
+/* Эффекты при фокусе на поле ввода */
+.login-form-container input[type="text"]:focus,
+.login-form-container input[type="password"]:focus {
+    border-color: rgb(254, 59, 117); /* Изменение цвета границы при фокусе */
+    box-shadow: 0 0 5px rgba(254, 59, 117, 0.5); /* Лёгкое свечение при фокусе */
+    outline: none; /* Убираем стандартное выделение */
+}
+
+/* Стили для кнопки */
+.login-form-container button {
+    width: 100%; /* Полная ширина кнопки */
+    padding: 12px;
+    background-color: rgb(254, 59, 117); /* Основной цвет кнопки */
+    color: white; /* Белый текст */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Скруглённые углы */
+    cursor: pointer; /* Изменение курсора при наведении */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход эффектов */
+}
+
+.login-form-container button:hover {
+    background-color: rgb(34, 193, 195); /* Изменение цвета кнопки при наведении */
+    transform: translateY(-2px); /* Лёгкий подъём кнопки при наведении */
+}
+
+/* Стили для сообщения об ошибке */
+.login-form-container .error-message {
+    color: rgb(255, 59, 48); /* Красный цвет для сообщения об ошибке */
+    font-size: 14px;
+    margin: 5px 0;
+}/* Контейнер для анимации */
+/* Контейнер для анимации */
+.dot-container {
+    width: 200px;
+    display: grid;
+    grid-template-rows: repeat(3, 1fr); /* 3 строки */
+    gap: 5px; /* Расстояние между рядами */
+    padding: 20px;
+    background-color: #f0f0f0; /* Светлый фон контейнера */
+}
+
+/* Стили для ряда точек */
+.dot-row {
+    display: flex;
+    justify-content: flex-start; /* Выровнять точки по левому краю */
+    gap: 5px; /* Расстояние между точками */
+}
+
+/* Стили для точки */
+.dot {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%; /* Скруглённая форма точки */
+    opacity: 0; /* Начальное состояние точки — невидимое */
+    animation: flyIn 3s infinite; /* Анимация появления */
+}
+
+/* Анимация вылета точки */
+@keyframes flyIn {
+    0% {
+        transform: translateX(100%); /* Начальное положение справа */
+        opacity: 0; /* Невидимые в начале */
+    }
+    100% {
+        transform: translateX(0); /* Положение в конечной позиции */
+        opacity: 1; /* Видимые в конце */
+    }
+}
+
+
+
+/* Задержки для точек внутри ряда для более плавного эффекта */
+.dot1 { background-color: #ff6f61; animation-delay: 0.5s; }
+.dot2 { background-color: #6b5b95; animation-delay: 0.7s; }
+.dot3 { background-color: #88b04b; animation-delay: 0.9s; }
+
+.dot4 { background-color: #f7cac9; animation-delay: 1.5s; }
+.dot5 { background-color: #92a8d1; animation-delay: 1.7s; }
+.dot6 { background-color: #955251; animation-delay: 1.9s; }
+
+.dot7 { background-color: #b5e7a0; animation-delay: 2.5s; }
+.dot8 { background-color: #e8c3b7; animation-delay: 2.7s; }
+.dot9 { background-color: #f9c74f; animation-delay: 2.9s; }
+
+/* Container for the whole animation */
+.animation-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: #222;
+}
+
+.cinema-container {
+    position: relative;
+    width: 80%;
+    height: 80%;
+}
+
+.screen {
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    width: 200px;
+    height: 150px;
+    background-color: #444;
+    border: 2px solid #fff;
+}
+
+.projector {
+    position: absolute;
+    bottom: 30%;
+    left: 5%;
+    width: 50px;
+    height: 30px;
+    background-color: #333;
+    animation: projectorLight 1s forwards 1s; /* Starts lighting after 1 second */
+}
+
+@keyframes projectorLight {
+    0% { box-shadow: none; }
+    100% { box-shadow: 200px 0 100px 60px rgba(255, 255, 150, 0.7); }
+}
+
+.chairs {
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+}
+
+.chair, .person-chair {
+    width: 50px;
+    height: 50px;
+    background-color: #555;
+    border: 2px solid #333;
+}
+
+.person {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.head {
+    width: 40px;
+    height: 40px;
+    background-color: #ffcc99;
+    border-radius: 50%;
+    position: relative;
+    margin-bottom: 5px;
+    animation: smile 6s forwards;
+}
+
+.eyes {
+    position: absolute;
+    top: 12px;
+    left: 8px;
+    width: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.eyes::before, .eyes::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.smile {
+    position: absolute;
+    bottom: 6px;
+    left: 8px;
+    width: 24px;
+    height: 12px;
+    border-radius: 0 0 12px 12px;
+    background-color: white;
+    animation: smileAppear 6s forwards;
+}
+
+@keyframes smileAppear {
+    0%, 70% { display: none; }
+    100% { display: block; }
+}
+
+.body {
+    width: 25px;
+    height: 30px;
+    background-color: #666;
+}
+
+.arm {
+    position: absolute;
+    width: 8px;
+    height: 30px;
+    background-color: #666;
+    top: 35px;
+    left: 5px;
+    transform-origin: top;
+    animation: drinkCola 4s infinite alternate 2s; /* Starts drinking after 2 seconds */
+}
+
+@keyframes drinkCola {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(-75deg); }
+}
+
+.cola {
+    width: 8px;
+    height: 15px;
+    background-color: red;
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    rotate: 90deg;
+}
+
+.company-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: #fff;
+    opacity: 0;
+    animation: showName 8s forwards; /* Company name appears after 8 seconds */
+}
+
+@keyframes showName {
+    0% { opacity: 0; }
+    90% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Container for the certificate with a background image and gradient */
+.certificate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background: linear-gradient(45deg, #fe3b75, #8a2be2);
+    /* background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(200, 200, 255, 0.8)),
+                url('https://www.transparenttextures.com/patterns/paper.png');  Replace with a suitable pattern */
+    background-size: cover;
+    padding: 20px;
+}
+
+/* Styling for the certificate table */
+.certificate-table {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 15px solid transparent;
+
+    border-image: url('../images/ыукеуашсфеу.webp') 30 round; /* Replace with your border image */
+    background-image: url("../images/BG-serteficate.webp");
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+    width: 80%;
+    max-width: 800px;
+    font-family: 'Georgia', serif;
+}
+
+/* Header styles */
+.certificate-table h1 {
+    font-size: 2.5rem;
+    color: #333;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 2px #999;
+    margin: 0;
+}
+
+.certificate-table h2 {
+    font-size: 2rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin: 0;
+}
+
+/* General text styles */
+.certificate-table p, .certificate-table td {
+    color: #444;
+    font-size: 1rem;
+    text-align: justify;
+}
+
+.certificate-table td {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+/* Adjustments for signatures and seals */
+.certificate-table img {
+    filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+    margin-top: 10px;
+}
+
+.article-content {
+    display: flex;
+    gap: 20px; /* Spacing between the image and text */
+}
+
+.article-content img {
+    max-width: 30%; /* Ensures the image takes up to 30% of the container */
+    height: auto;
+    object-fit: cover; /* Scales the image to maintain its aspect ratio */
+}
+
+.article-content p {
+    column-count: 2; /* Number of columns in the layout */
+    column-gap: 30px; /* Space between the columns */
+    text-align: justify; /* Justifies text for a clean look */
+}
+
+@media screen and (max-width: 768px) {
+    .article-content {
+        flex-direction: column; /* Stacks image and text vertically on smaller screens */
+    }
+
+    .article-content p {
+        column-count: 1; /* Switch to a single column for narrow screens */
+    }
+}
+
+/* Style for the highlighted first letter or line */
+.highlighted-text::first-letter {
+    font-size: 2.5em; /* Makes the first letter bigger */
+    font-weight: bold;
+    color: var(--alt-text-color); /* Main color used for highlighting */
+    float: left; /* Floats the letter to the left */
+    margin-right: 5px; /* Adds spacing after the letter */
+    line-height: 1;
+}
+
+/* Unicode list markers */
+.custom-list {
+    list-style-type: none; /* Removes default bullets */
+    padding: 0;
+    margin: 20px 0;
+}
+
+.custom-list li::before {
+    font-variant: no-common-ligatures proportional-nums;
+    content: "\2022"; /* Unicode character for bullet */
+    color: var(--alt-text-color); /* Color of the bullet */
+    font-size: 1.5em;
+    margin-right: 10px;
+}
+
+/* Styling for selected text */
+::selection {
+    background-color: rgb(34, 193, 195); /* Background color when text is selected */
+    color: white; /* Text color when selected */
+}
+
+:lang(ru){
+    font-kerning: none;
+    font-size: large;
+    color: #1e88e5;
+}
+
+.contact-item {
+    display: flex;
+    margin-bottom: 20px; /* Spacing between contact items */
+    padding: 15px; /* Padding inside the contact item */
+    border: 1px solid #ccc; /* Border for each contact item */
+    border-radius: 8px; /* Rounded corners */
+}
+
+.contact-info {
+    flex: 1; /* Takes up remaining space */
+    margin-right: 20px; /* Space between info and photo */
+}
+
+.contact-info h2 {
+    font-size: 1.5em; /* Larger font size for name */
+    margin-bottom: 5px; /* Space below name */
+}
+
+.contact-info h3 {
+    font-size: 1.2em; /* Slightly larger font size for position */
+    color: #666; /* Lighter color for position */
+    margin-bottom: 10px; /* Space below position */
+}
+
+.contact-info p {
+    line-height: 1.6; /* Line spacing for duties */
+}
+
+.contact-details {
+    margin-top: 10px; /* Space above contact details */
+}
+
+.contact-details h4 {
+    margin: 5px 0; /* Space around each contact detail */
+}
+
+.contact-photo {
+    flex: 0 0 50%; /* Fixed width for the photo */
+}
+
+.contact-photo img {
+    width: 100%; /* Make sure the image fills its container */
+    border-radius: 50%; /* Rounded photo */
+}
+
+/* Style for the vacancies list */
+.vacancies-list {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margin */
+}
+
+/* Style for each vacancy item */
+.vacancy-item {
+    width: 48%; /* Adjust width to make two items fit in a row */
+    margin: 1%; /* Margin for spacing between items */
+    padding: 15px; /* Padding inside the vacancy block */
+    background-color: #f3f3f3; /* Light background color */
+    border: 1px solid #ddd; /* Border around each item */
+    border-radius: 8px; /* Rounded corners */
+    float: left; /* Float the items to make them side by side */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+/* Clear the float to ensure the list layout is preserved */
+.vacancies-list::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Vacancy title styles */
+.vacancy-info h2 {
+    color: #fe3b75; /* Main color */
+    font-size: 1.4em; /* Larger font size for titles */
+    margin-bottom: 5px; /* Spacing below the title */
+}
+
+/* Salary information styles */
+.vacancy-info h3 {
+    font-size: 1.2em; /* Font size for salary */
+    color: #333; /* Darker color for emphasis */
+    margin-bottom: 10px; /* Spacing below the salary */
+}
+
+/* Description styles */
+.vacancy-info p {
+    font-size: 1em; /* Standard paragraph size */
+    line-height: 1.6; /* Increase line spacing */
+    color: #555; /* Slightly lighter text color */
+}
+
+
+/* Common Styles for All Sections */
+h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff /* Main brand color */
+}
+
+h3 {
+    font-size: 1.4em;
+    margin: 10px 0;
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+    margin: 5px 0;
+}
+
+/* FAQ Section Styles */
+.faq-section {
+    color: var(--alt-text-color);
+    background: linear-gradient(to right, #ffe5e5, #ffecec);
+    border: 1px solid #fe3b75;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.faq-item {
+    margin-bottom: 15px;
+    border-bottom: 1px dashed #fe3b75;
+    padding-bottom: 10px;
+}
+
+/* Coupons Section Styles */
+.coupon-section {
+    background: linear-gradient(to right, #e5f5e5, #ecffec);
+    border: 1px solid #47a747;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.coupon-item {
+    margin-bottom: 15px;
+    background-color: var(--main-bg-color);
+    color: var(--alt-text-color);
+    border: 1px solid #47a747;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Reviews Section Styles */
+.reviews-section {
+    background: linear-gradient(to right, #e5e5ff, #ececff);
+    border: 1px solid #4755a7;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+}
+
+.review-item {
+    margin-bottom: 15px;
+    background-color: rgb(34, 193, 195);;
+    border: 1px solid #4755a7;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+}
+
+/* Hover and Focus States */
+.faq-item:hover,
+.coupon-item:hover,
+.review-item:hover {
+    background-color: var(--main-bg-color);
+    transform: translateY(-2px);
+    transition: 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .faq-section,
+    .coupon-section,
+    .reviews-section {
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    h3 {
+        font-size: 1.2em;
+    }
+}
+
+/* Style for all input fields */
+input, select, textarea {
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Available fields (default styling) */
+input:enabled, select:enabled, textarea:enabled {
+    background-color: #e0f7fa;
+    border-color: #00acc1;
+}
+
+/* Required fields */
+input:required, select:required, textarea:required {
+    background-color: #fff3e0;
+    border-color: #fb8c00;
+    border: 5px solid;
+}
+
+/* Disabled fields */
+input:disabled, select:disabled, textarea:disabled {
+    background-color: #e0e0e0;
+    color: #9e9e9e;
+    border-color: #bdbdbd;
+    cursor: not-allowed;
+}
+
+/* Fields with values outside the range */
+input:out-of-range {
+    background-color: #d75420;
+    border-color: #e53935;
+}
+
+/* Checked checkboxes or radio buttons */
+input[type="checkbox"]:checked, input[type="radio"]:checked {
+    outline: 2px solid #00e676;
+    background-color: #a5d6a7;
+}
+
+/* Focused fields for better user experience */
+input:focus, select:focus, textarea:focus {
+    border-color: #42a5f5;
+    box-shadow: 0 0 5px rgba(66, 165, 245, 0.5);
+}
+
+/* Base styles for radio buttons and checkboxes */
+input[type="radio"], input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    cursor: pointer;
+    appearance: none; /* Removes default styling */
+    border: 2px solid #ccc;
+    transition: all 0.3s ease;
+}
+
+/* Style for unchecked radio buttons and checkboxes */
+input[type="radio"]:not(:checked), input[type="checkbox"]:not(:checked) {
+    background-color: #f1f1f1;
+}
+
+/* Style for checked radio buttons */
+input[type="radio"]:checked {
+    background-color: #00e676;
+    border: 2px solid #00c853;
+    box-shadow: 0 0 5px rgba(0, 200, 83, 0.5);
+}
+
+/* Style for checked checkboxes */
+input[type="checkbox"]:checked {
+    background-color: #42a5f5;
+    border: 2px solid #1e88e5;
+    box-shadow: 0 0 5px rgba(66, 165, 245, 0.5);
+}
+
+/* Hover effect for radio buttons and checkboxes */
+input[type="radio"]:hover, input[type="checkbox"]:hover {
+    border-color: #8e8e8e;
+    box-shadow: 0 0 8px rgba(142, 142, 142, 0.5);
+}
+
+/* Active state (when the element is being clicked) */
+input[type="radio"]:active, input[type="checkbox"]:active {
+    background-color: #d1c4e9;
+    border-color: #7e57c2;
+}
+
