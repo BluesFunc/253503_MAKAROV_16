@@ -4,13 +4,15 @@
 {% endblock head_text %}
 
 {% block main_content%}
-<ul>
+<div class="coupon-section">
+
+
   {%for coupon in coupons %}
-  <li>
+  <div class="coupon-item"> 
     <h2>Промокод</h2>
-    <h3>-{{coupon.code}}</h3>
-    <h3>Скидка {{coupon.discount}}%</h3>
-  </li>
+    <p>-{{coupon.code}}</h3>
+    <p>Скидка {{coupon.discount}}%</h3>
+    </div>
   {% endfor %}
-</ul>
+    </div>
 {%endblock main_content%}

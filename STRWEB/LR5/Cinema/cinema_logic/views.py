@@ -1,7 +1,10 @@
 import os
 from datetime import timedelta, datetime
 
+from django.core import  serializers
 from django.conf import settings
+from django.core.paginator import Paginator
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -84,10 +87,32 @@ def register_user(request):
         return redirect('main')
 
 
+
 def show_list(request):
+    PRODUCTS = [{"id": i, "name": f"Товар {i}"} for i in range(1, 10)]
+    items_per_page = 3
     today = datetime.now()
-    shows = Show.objects.filter(film_date__gte=today).order_by('film_date')
-    return render(request, 'show_list.html', {'shows': shows})
+    shows = Show.objects.select_related('movie').filter(film_date__gte=today).order_by('film_date')
+    data =  [{"id": shows[i].id, "name": str(shows[i])} for i in range(len(shows))]
+    page_number = request.GET.get("page", 1)
+    
+    paginator = Paginator(data, items_per_page)
+    page_obj = paginator.get_page(page_number)
+
+    # Если запрос AJAX, возвращаем JSON
+    if request.headers.get("x-requested-with") == "application/json":
+        return JsonResponse({
+            "products": list(page_obj.object_list),
+            "has_previous": page_obj.has_previous(),
+            "has_next": page_obj.has_next(),
+            "current_page": page_obj.number,
+            "total_pages": paginator.num_pages,
+        })
+
+    # Если обычный запрос, рендерим страницу
+
+
+    return render(request, 'show_list.html')
 
 
 def show_detail(request, show_id):

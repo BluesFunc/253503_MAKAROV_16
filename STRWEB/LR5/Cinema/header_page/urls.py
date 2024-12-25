@@ -9,6 +9,7 @@ urlpatterns = [
     path('news/<int:news_id>', views.news_page, name='news_page'),
     path('FAQ', views.QuestionListView.as_view(), name='FAQ'),
     path('contacts', views.ContactsListView.as_view(), name='contacts'),
+    path('employees', views.get_employee, name='get_employees'),
     path('policy', views.policy_view, name='policy'),
     path('vacancies', views.VacancyListView.as_view(), name='vacancy'),
     path('reviews', views.ReviewsListView.as_view(), name='reviews'),

@@ -1,22 +1,92 @@
 {%extends "base.html" %}
+
+{%load static%}
 {% block head_text %}
 <h1>Наши сотрудники</h1>
 {% endblock head_text %}
 
+
+
 {% block main_content%}
-{%if contacts%}
-<ul>
-  {% for contact in contacts%}
-  <li>
-    <h2>{{contact.name}}</h2>
-    <h3>{{contact.position}}</h3>
-    <p>{{contact.duties}}</p>
-    <h4>{{contact.mail}}</h4>
-    <h4>{{contact.phone_number}}</h4>
-    <img src="{{contact.photo_url}}" width="50%">
-  </li>
-  {% endfor%}
-</ul>
-{% endif %}
+
+<div id="contacts-page">
+    <h1 id="contacts-title">Контакты сотрудников</h1>
+
+    <!-- Фильтрация -->
+    <div id="filter-section" class="filter-section">
+        <input type="text" id="filter-input" placeholder="Поиск по имени или должности">
+        <button id="filter-button">Найти</button>
+    </div>
+
+    <!-- Таблица контактов -->
+    <table id="contacts-table" class="contacts-table">
+        <thead>
+            <tr>
+                <th data-column="photo">Фото</th>
+                <th data-column="name">ФИО</th>
+                <th data-column="position">Должность</th>
+                <th data-column="duties">Обязанности</th>
+                <th data-column="phone_number">Телефон</th>
+                <th data-column="mail">Почта</th>
+                <th>Выбрать</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Данные загружаются через JS -->
+        </tbody>
+    </table>
+
+    <!-- Пагинация -->
+    <div id="pagination" class="pagination">
+        <!-- Пагинация добавляется через JS -->
+    </div>
+
+    
+    <!-- Премирование -->
+    <div id="selection-summary" class="selection-summary">
+        <button id="reward-button">Премировать выбранных</button>
+        <p id="reward-message"></p>
+    </div>
+
+    <!-- Добавление нового сотрудника -->
+    <div id="add-section" class="add-section">
+        <button id="show-add-form">Добавить сотрудника</button>
+        <form id="add-form" class="hidden">
+            <label>ФИО: <input type="text" id="name-input" required></label>
+            <label>Фото (URL): <input type="url" id="url-input" required></label>
+            <label>Должность: <input type="text" id="position-input" required></label>
+            <label>Обязанности: <textarea id="duties-input" rows="2" required></textarea></label>
+            <label>Телефон: <input type="text" id="phone-input" required></label>
+            <label>Почта: <input type="email" id="mail-input" required></label>
+            <button type="button" id="add-button">Добавить в таблицу</button>
+            <p id="form-message" class="form-message"></p>
+        </form>
+    </div>
+
+    <!-- Прелоадер -->
+    <div id="preloader" class="preloader hidden dot-container">
+        <div class="dot-row">
+            <div class="dot dot1"></div>
+            <div class="dot dot2"></div>
+            <div class="dot dot3"></div>
+        </div>
+        <div class="dot-row">
+            <div class="dot dot4"></div>
+            <div class="dot dot5"></div>
+            <div class="dot dot6"></div>
+        </div>
+        <div class="dot-row">
+            <div class="dot dot7"></div>
+            <div class="dot dot8"></div>
+            <div class="dot dot9"></div>
+        </div>
+    </div>
+</div>
+
+    
+
+
+<script src="{% static "/scripts/employe_sheet.js" %}"></script>
+
 
 {%endblock main_content%}

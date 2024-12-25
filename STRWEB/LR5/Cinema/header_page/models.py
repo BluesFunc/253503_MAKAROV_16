@@ -4,6 +4,7 @@ from django.db import models
 from django.shortcuts import reverse
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.utils import timezone
+from cinema_logic.models import Show
 
 
 class CompanyInfo(models.Model):

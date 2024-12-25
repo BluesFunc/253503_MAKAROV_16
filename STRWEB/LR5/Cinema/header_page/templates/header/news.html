@@ -9,10 +9,12 @@
             {% for news in news_articles %}
                 <li>
                     <h2>{{ news.header }}</h2>
-                    <img src="{{ news.image_url }}" width="100%"/>
-                    <a  href="{% url 'news_page'  news.id %}">
-                        <button> Читать далее</button>
-                    </a>
+    <img src="{{ news.image_url }}" width="100%">
+    <p class="short-description">{{ news.description }}</p>
+    <a  href="{% url 'news_page'  news.id %}">
+        <button> Читать далее</button>
+    </a>
+
                 </li>
             {% endfor %}
         </ul>

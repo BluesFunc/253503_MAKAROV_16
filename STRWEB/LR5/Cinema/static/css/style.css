@@ -1,6 +1,8 @@
 html {
     --main-bg-color:  rgb(254,59,117);
+    --main-element-color: rgb(255,255,255);
     --alt-text-color:  rgb(34, 34, 34);
+    --main-hover-color: rgb(34, 193, 195);
 }
 
 .user-block {
@@ -642,50 +644,9 @@ a:hover, button:hover {
     color: #1e88e5;
 }
 
-.contact-item {
-    display: flex;
-    margin-bottom: 20px; /* Spacing between contact items */
-    padding: 15px; /* Padding inside the contact item */
-    border: 1px solid #ccc; /* Border for each contact item */
-    border-radius: 8px; /* Rounded corners */
-}
 
-.contact-info {
-    flex: 1; /* Takes up remaining space */
-    margin-right: 20px; /* Space between info and photo */
-}
 
-.contact-info h2 {
-    font-size: 1.5em; /* Larger font size for name */
-    margin-bottom: 5px; /* Space below name */
-}
 
-.contact-info h3 {
-    font-size: 1.2em; /* Slightly larger font size for position */
-    color: #666; /* Lighter color for position */
-    margin-bottom: 10px; /* Space below position */
-}
-
-.contact-info p {
-    line-height: 1.6; /* Line spacing for duties */
-}
-
-.contact-details {
-    margin-top: 10px; /* Space above contact details */
-}
-
-.contact-details h4 {
-    margin: 5px 0; /* Space around each contact detail */
-}
-
-.contact-photo {
-    flex: 0 0 50%; /* Fixed width for the photo */
-}
-
-.contact-photo img {
-    width: 100%; /* Make sure the image fills its container */
-    border-radius: 50%; /* Rounded photo */
-}
 
 /* Style for the vacancies list */
 .vacancies-list {
@@ -922,3 +883,630 @@ input[type="radio"]:active, input[type="checkbox"]:active {
     border-color: #7e57c2;
 }
 
+/* Slider container */
+#slider {
+    position: relative;
+    width: 25%;
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+  }
+  
+  /* Wrapper for slides */
+  .slider-wrapper {
+    display: flex;
+    transition: transform 1s ease-in-out;
+  }
+  
+  /* Individual slide */
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+    text-align: center;
+  }
+  
+  .slide img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+  }
+  
+  .slide-caption {
+    padding: 10px;
+    background-color: #f0f0f0;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    border-top: 1px solid #ddd;
+  }
+  
+  /* Navigation buttons */
+  .slider-prev,
+  .slider-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 50%;
+    z-index: 10;
+  }
+  
+  .slider-prev {
+    left: 10px;
+  }
+  
+  .slider-next {
+    right: 10px;
+  }
+  
+  .slider-prev:hover,
+  .slider-next:hover {
+    background: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Pagination */
+  .slider-pagination {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .pagination-btn {
+    background: #ddd;
+    border: none;
+    margin: 0 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .pagination-btn.active {
+    background: #555;
+    color: #fff;
+  }
+  
+  .pagination-btn:hover {
+    background: #bbb;
+  }
+  
+  /* Slide counter */
+  .slider-counter {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+  }
+  
+  .content {
+    text-align: center;
+    width: 80%;
+}
+
+/* Контейнер для кубков с горизонтальным скроллингом */
+.scroll-container {
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    height: 400px;
+    margin-top: 50px;
+    width: 100%;
+    overflow-y: scroll; /* Добавляем горизонтальный скроллер */
+    padding-bottom: 20px; /* Отступ снизу для красивого скроллинга */
+}
+
+/* Стили для каждого кубка */
+.trophy {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.7;
+    margin: 0 20px;
+}
+
+/* Стили для изображения в каждом кубке */
+.trophy img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10%;
+}
+
+/* Эффект при наведении на кубок */
+.trophy:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+/* Уникальный стиль для контейнера графика */
+.chart-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chart-container h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Уникальный стиль для canvas */
+.chart-canvas {
+    background: linear-gradient(135deg, #e8f0ff, #ffffff);
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Эффект при наведении */
+.chart-canvas:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.02);
+    transition: all 0.3s ease-in-out;
+}
+
+
+/* Контейнер настроек */
+.style-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #000;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+}
+
+/* Элементы управления стилем */
+.style-controls {
+    margin: 10px 0;
+    padding: 10px;
+    display: none;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+/* Контент страницы */
+.page-content {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+   
+}
+
+.page-content-title {
+    font-size: inherit;
+    margin-bottom: 10px;
+}
+
+.page-content-text {
+    font-size: inherit;
+    line-height: 1.5;
+    color: #333;
+}
+
+.page-content-image {
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.page-content-image:hover {
+    transform: scale(1.05);
+}
+
+#product-page {
+    font-family: Arial, sans-serif;
+    width: 80%;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+
+#product-page {
+    font-family: Arial, sans-serif;
+    width: 80%;
+    margin: 20px auto;
+    background-color: var(--main-element-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: var(--alt-text-color);
+}
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.product-card {
+    background: var(--main-bg-color);
+    border: 1px solid var(--alt-text-color);
+    border-radius: 4px;
+    padding: 10px;
+    text-align: center;
+    color: var(--main-element-color);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-button {
+    border: 1px solid var(--alt-text-color);
+    background: var(--main-element-color);
+    color: var(--alt-text-color);
+    padding: 8px 12px;
+    margin: 0 4px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.pagination-button.active {
+    font-weight: bold;
+    background: var(--main-bg-color);
+    color: var(--main-element-color);
+}
+
+.pagination-button:hover {
+    background: var(--main-hover-color);
+    color: var(--main-element-color);
+}
+
+.pagination-button:focus {
+    outline: none;
+    box-shadow: 0 0 4px var(--main-hover-color);
+}
+
+
+#contacts-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#contacts-title {
+    text-align: center;
+    color: var(--main-element-color);
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#filter-input {
+    padding: 10px;
+    border: 2px solid var(--alt-text-color);
+    border-radius: 5px;
+    flex: 1;
+    max-width: 300px;
+}
+
+#filter-button {
+    padding: 10px 20px;
+    background-color: var(--main-hover-color);
+    color: var(--main-element-color);
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#filter-button:hover {
+    background-color: var(--alt-text-color);
+    color: var(--main-bg-color);
+}
+
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.contacts-table th,
+.contacts-table td {
+    border: 1px solid var(--alt-text-color);
+    padding: 10px;
+    text-align: center;
+}
+
+.contacts-table th {
+    background-color: var(--alt-text-color);
+    color: var(--main-element-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.contacts-table tr:nth-child(even) {
+    background-color: var(--main-element-color);
+}
+
+.contacts-table tr:nth-child(odd) {
+    background-color: var(--main-hover-color);
+    color: var(--main-element-color);
+}
+
+.contacts-table tr:hover {
+    background-color: var(--alt-text-color);
+    color: var(--main-element-color);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.pagination button {
+    background-color: var(--main-hover-color);
+    color: var(--main-element-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: var(--alt-text-color);
+    color: var(--main-bg-color);
+}
+
+.selection-summary {
+    text-align: center;
+}
+
+#reward-button {
+    background-color: var(--alt-text-color);
+    color: var(--main-element-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#reward-button:hover {
+    background-color: var(--main-hover-color);
+}
+
+#add-data-button {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: var(--main-hover-color);
+    color: var(--main-element-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-data-button:hover {
+    background-color: var(--alt-text-color);
+}
+
+#add-form-container {
+    display: none;
+    background-color: var(--main-element-color);
+    padding: 20px;
+    border: 1px solid var(--alt-text-color);
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+#add-form-container label {
+    display: block;
+    margin: 10px 0 5px;
+    color: var(--alt-text-color);
+}
+
+#add-contact-form input,
+#add-contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--alt-text-color);
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+#add-contact-form input:invalid,
+#add-contact-form textarea:invalid {
+    border-color: rgb(255, 99, 71);
+    background-color: rgba(255, 99, 71, 0.2);
+}
+
+#validation-message {
+    color: rgb(255, 99, 71);
+    font-size: 14px;
+}
+
+#add-contact-button {
+    display: block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background-color: var(--main-bg-color);
+    color: var(--main-element-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#add-contact-button:disabled {
+    background-color: var(--alt-text-color);
+    cursor: not-allowed;
+}
+
+
+#contacts-page {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#contacts-title {
+    text-align: center;
+    color: var(--main-element-color);
+    margin-bottom: 20px;
+}
+
+.filter-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#filter-input {
+    padding: 10px;
+    border: 2px solid var(--alt-text-color);
+    border-radius: 5px;
+    flex: 1;
+    max-width: 300px;
+}
+
+#filter-button {
+    padding: 10px 20px;
+    background-color: var(--main-hover-color);
+    color: var(--main-element-color);
+    border: none;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#filter-button:hover {
+    background-color: var(--alt-text-color);
+    color: var(--main-bg-color);
+}
+
+.contacts-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+.contacts-table th,
+.contacts-table td {
+    border: 1px solid var(--alt-text-color);
+    padding: 10px;
+    text-align: center;
+}
+
+.contacts-table th {
+    background-color: var(--alt-text-color);
+    color: var(--main-element-color);
+    cursor: pointer;
+    user-select: none;
+}
+
+.contacts-table tr:nth-child(even) {
+    background-color: var(--main-element-color);
+    color: var(--alt-text-color);
+}
+
+.contacts-table tr:nth-child(odd) {
+    background-color: var(--main-hover-color);
+
+}
+
+.contacts-table tr:hover {
+    background-color: var(--alt-text-color);
+    color: var(--main-element-color);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.pagination button {
+    background-color: var(--main-hover-color);
+    color: var(--main-element-color);
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: var(--alt-text-color);
+    color: var(--main-bg-color);
+}
+
+.selection-summary {
+    text-align: center;
+}
+
+#reward-button {
+    background-color: var(--alt-text-color);
+    color: var(--main-element-color);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#reward-button:hover {
+    background-color: var(--main-hover-color);
+}
+
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+
+#preloader.hidden {
+    display: none;
+}
+
+
+#add-form.hidden {
+    display: none;
+}
+
+.contact-photo {
+    width: 150px;
+    height: 150px;
+}

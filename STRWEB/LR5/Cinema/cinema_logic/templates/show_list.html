@@ -1,12 +1,18 @@
 {% extends 'base.html' %}
-
+{%load static%}
 {% block main_content %}
+
+<script defer src="{% static '/scripts/shows_pagination.js' %}"></script>
   <h1>Сеансы</h1>
-  <ul>
-    {% for show in shows %}
-      <li>
-        <a href="{% url 'show_detail' show.id %}">{{ show.movie.name }} в {{ show.hall.hall_number }} на {{ show.film_date }}</a>
-      </li>
-    {% endfor %}
-  </ul>
-{%endblock main_content%}
+  <div id="product-page">
+              
+   
+    <div id="products-container" class="products-container">
+        <!-- Товары будут загружаться через AJAX -->
+    </div>
+    
+    <div id="pagination" class="pagination">
+        <!-- Кнопки пагинации будут генерироваться через JavaScript -->
+    </div>
+</div>
+{% endblock main_content %}

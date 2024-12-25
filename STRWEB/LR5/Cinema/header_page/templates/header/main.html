@@ -1,31 +1,134 @@
 {% extends "base.html" %}
+{% load static%}
+
+<script src="{% static "/scripts/birthday.js" %}"></script>
+
 {% block head_text %}
-    <h1> Кинотеатр "Подосиновик"</h1>
+    <h1 > Кинотеатр "Подосиновик"</h1>
 {% endblock head_text %}
 
 {% block main_content %}
-    <img src="/static/Logo.png" \>
+<div id="slider">
+    <script src="{% static "/scripts/slider.js" %}"></script>  
+</div>
+
+   
+    {% if user.groups.get.name  != 'Customer' and user.is_authenticated %}
+        
+    <form id="slider-delay-form">
+        <label for="delay">Set Slide Delay (seconds):</label>
+        <input type="number" id="delay" name="delay" min="1" step="1" value="5">
+        <button type="submit">Update Delay</button>
+      </form>
+     
+    {%endif%}
+ 
+    
+    
+      <script>
+        document.getElementById('slider-delay-form').addEventListener('submit', function(e) {
+          e.preventDefault();
+    
+          const delayInput = document.getElementById('delay').value;
+          const delayInMilliseconds = parseInt(delayInput, 10) * 1000;
+    
+          if (slider) {
+            slider.delay = delayInMilliseconds;
+            slider.startAutoRotate();
+            alert(`Slide delay updated to ${delayInput} seconds.`);
+          }
+        });
+    </script>
+</div>
+
+    
+
     <h2>Наши акции</h2>
-    <img src="/static/Ad1.jpg" width='300px' height="300px"/>
-    <img src="/static/Ad2.jpg" width='300px' height="300px"/>
-    <img src="/static/Ad3.jpg" width='300px' height="300px"/>
-    <img src="/static/Ad4.jpeg" width='300px' height="300px"/>
+    <div class="partners-container">
+        <div class="partner-block"> 
+            <img src="{% static "images/Ad1.jpg" %}"/>
+        </div>
+        <div class="partner-block"> 
+              <img src="{% static "images/Ad2.jpg" %}"/>
+            </div>
+        <div class="partner-block">
+            <img src="{% static "images/Ad3.jpg" %}"/>
+        </div>
+        <div class="partner-block">
+             <img src="{% static "images/Ad4.jpeg" %}" />
+        </div>
+    </div>
     <h2>Наши партнеры</h2>
-    <ul>
-        {% for partner in partners %}
-            <li>
-                <a href={{ partner.partner_site }}><img src={{ partner.partner_logo }}></a>
-            </li>
-        {% endfor %}
-    </ul>
+        <div class="partners-container" >
+            {% for partner in partners %}
+                    <div class="partner-block">
+                    <a href={{ partner.partner_site }}><img src={{ partner.partner_logo }}></a>
+                    </div>
+            {% endfor %}
+        </div>
+
+        <form id="birthdate-form">
+            <label for="birthdate">Введите вашу дату рождения:</label>
+            <input type="date" id="birthdate" required>
+            <button type="submit">Проверить</button>
+        </form>
+        
+        <!-- Блок для сообщений -->
+        <div id="message" style="margin-top: 20px; font-size: 18px;"></div>
+        <script src="{% static "/scripts/birthday.js" %}"></script>
+    
+    <h2> Каталог  </h2> 
+        <div class="catalog-container">
+            {% for i in range %}
+            <div class="catalog-item">
+                <div class="item-info">
+                    <h3 class="item-title">Джанго</h3>
+                    <p class="item-description">Крутой вестерн</p>
+                    <div class="item-price">Цена: 300</div>
+                    <a href="#buy-ticket" class="item-button">Купить билет</a>
+                </div>
+            </div>
+            {% endfor %}
+            
+            </div>
+     
     {% if news %}
-        <article>
-            <h2>{{ news.header }}</h2>
-            <p>{{ news.description }}</p>
-            <img src="{{ news.image_url }}" width="100%">
-        </article>
+        <article class="main_news">
+    <h2>{{ news.header }}</h2>
+    <img src="{{ news.image_url }}" width="100%">
+    <p class="short-description">{{ news.description }}</p>
+</article>
 
     {% endif %}
+   
+    <div class="animation-container">
+        <div class="cinema-container">
+            <div class="screen"></div>
+            <div class="projector"></div>
+            <div class="chairs">
+                <div class="chair"></div>
+                <div class="chair"></div>
+                <div class="person-chair">
+                    <div class="person">
+                        <div class="head">
+                            <div class="eyes"></div>
+                            <div class="smile"></div>
+                        </div>
+                        <div class="body"></div>
+                        <div class="arm">
+                            <div class="cola"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chair"></div>
+            </div>
+            <div class="company-name">Подосиновик</div>
+        </div>
+    </div>
+</div>
 
+    
+    
+    
 
 {% endblock main_content %}

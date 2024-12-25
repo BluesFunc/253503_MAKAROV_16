@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 {% block head_text %}
-  <h2>Войти</h2>
+  <h2 >Login</h2>
 {% endblock head_text %}
 {% block main_content %}
+<div class="login-form-container">
   <form method="post" autocomplete="off">
     {% csrf_token %}
     {{ form.as_p }}
@@ -15,4 +16,5 @@
   {% if message %}
     <p>{{ message }}</p>
   {% endif %}
+</div>
 {% endblock main_content %}

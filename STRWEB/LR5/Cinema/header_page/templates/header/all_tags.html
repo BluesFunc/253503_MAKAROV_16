@@ -1,7 +1,8 @@
 {% extends "base.html" %}
-
 <main>
     {% block head_text %}
+
+    
         <header>
             <h1>Пример HTML-страницы со всеми тегами</h1>
         </header>
@@ -16,9 +17,58 @@
                 <li><a href="#section5">Медиа и разное</a></li>
             </ul>
         </nav>
+        
+        <div class="chart-container">
+            <h1>Анимация разложения синуса через ряд Тейлора</h1>
+            <canvas id="myChart" class="chart-canvas" width="600" height="400"></canvas>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="/static/scripts/plot.js"></script>
+        
+        <div class="style-container">
+            <label>
+                <input type="checkbox" class="style-toggle">
+                Включить настройки стиля
+            </label>
+            <div class="style-controls"></div>
+            <div class="page-content">
+                <h1 class="page-content-title">Пример текста</h1>
+                <p class="page-content-text">Этот текст будет изменять цвет, фон и размер шрифта.</p>
+                <img class="page-content-image" src="https://via.placeholder.com/150" alt="Пример изображения">
+            </div>
+        </div>
+        <script src="/static/scripts/changer.js"></script>
+
+        <h2>Управление почтовыми посылками</h2>
+
+        <!-- Форма для добавления новой посылки -->
+        <form id="parcelForm">
+            <label for="sender">Отправитель:</label>
+            <input type="text" id="sender" required><br>
+    
+            <label for="recipient">Получатель:</label>
+            <input type="text" id="recipient" required><br>
+    
+            <label for="weight">Вес (кг):</label>
+            <input type="number" id="weight" required><br>
+    
+            <label for="sendDate">Дата отправления (YYYY-MM-DD):</label>
+            <input type="date" id="sendDate" required><br>
+    
+            <button type="submit">Добавить посылку</button>
+        </form>
+    
+        <h2>Список всех посылок:</h2>
+        <ul id="allParcelsList"></ul>
+    
+        <h2>Получатели с несколькими посылками:</h2>
+        <ul id="multipleParcelsList"></ul>
+    
+        <script src="/static/scripts/objectMails.js"></script>
+
 
         <section id="section1">
-            <h2>Заголовки и абзацы</h2>
+            <h2 lang='ru'>Заголовки и абзацы</h2>
             <h1>Заголовок H1</h1>
             <h2>Заголовок H2</h2>
             <h3>Заголовок H3</h3>
@@ -93,11 +143,11 @@
 
             <form method="post">
                 {% csrf_token %}
-                <label for="text">Текстовое поле:</label>
-                <input type="text" id="text" name="text"><br><br>
+                <label for="text" >Текстовое поле:</label>
+                <input type="text" id="text" name="text" required="true"><br><br>
 
                 <label for="email">Email:</label>
-                <input type="email" id="email" name="email"><br><br>
+                <input  type="email" id="email" name="email" disabled="disabled" ><br><br>
 
                 <label for="password">Пароль:</label>
                 <input type="password" id="password" name="password"><br><br>
@@ -186,7 +236,7 @@
 
             <h3>Встраивание iframe</h3>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/ejda6cMXF2s" frameborder="0"
-                    allow=fullscreen"></iframe>
+                    allow="fullscreen"></iframe>
 
             <h3>Кнопки и ссылки</h3>
             <button>Кнопка</button>

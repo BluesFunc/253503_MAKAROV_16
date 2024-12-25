@@ -10,14 +10,14 @@
       <a href="{% url 'login' %}"><button>Оставить отзыв</button></a>
   {% endif %}
 
-  <ul>
+  <div class="reviews-section">
     {% for review in reviews %}
-      <li>
+    <div class='review-item'
         <h2>{{ review.issuer }}</h2>
         <h3>Оценка: {{ review.mark }}</h3>
         <p>{{ review.review_text }}</p>
         <strong>{{ review.post_data }}</strong>
-      </li>
+  </div>
     {% endfor %}
-  </ul>
+  </div>
 {% endblock main_content %}

@@ -1,28 +1,33 @@
 import datetime
 
+from django.core import serializers
 from django.shortcuts import render, redirect
 from django.core.cache import cache
 from django.http import JsonResponse
 from django.views.generic import ListView, DetailView
 
-from .models import (FAQ, News, EmployeesContact, VacancyInfo, Review, Coupon, PartnerInfo, CompanyInfo)
+from .models import (FAQ, News, EmployeesContact, VacancyInfo, Review, Coupon, PartnerInfo, CompanyInfo,)
+from cinema_logic.models import Show
 from .utils import fetch_news
 from .forms import ReviewForm
 
 
 def main_page(requset):
     try:
-        last_news = News.objects.last()
+        count = range(5)
+        last_news = News.objects.get(id=164)
         partners = PartnerInfo.objects.all()
+        
     except IndexError:
         last_news = None
         partners = None
+
     except AttributeError:
         last_news = None
         partners = None
     return render(requset,
                   'header/main.html',
-                  context={"news": last_news, "partners": partners})
+                  context={"news": last_news, "partners": partners, "range": count})
 
 
 def about_page(request):
@@ -35,17 +40,17 @@ def update_news():
     articles = fetch_news(api_key)
     news = []
     for article in articles[:10]:
-        if article.get('description') is None:
-            description = "Подробности отсувтсуют"
+        if article.get('content') is None:
+            continue
         else:
-            description = article.get('description')
+            content = article.get('description')
         link = article.get('url')
 
         news.append(News.objects.update_or_create(
             header=article.get('title'),
             link=link,
             defaults={
-                'description': description,
+                'description': content,
                 'image_url': article.get('urlToImage'),
                 'post_date': article.get('publishedAt')[:10],
             }
@@ -55,7 +60,7 @@ def update_news():
 
 
 def news_list(request):
-    news_articles = News.objects.all().order_by('-post_date')[:10]
+    news_articles = News.objects.all().order_by("-post_date")[:10]
     return render(request, 'header/news.html', {'news_articles': news_articles})
 
 def news_page(request, news_id):
@@ -77,6 +82,11 @@ class ContactsListView(ListView):
     model = EmployeesContact
     template_name = 'header/contacts.html'
     context_object_name = 'contacts'
+
+def get_employee(request):
+    employees = EmployeesContact.objects.all()
+    data = serializers.serialize('json', employees)
+    return JsonResponse({"data": data})
 
 
 class VacancyListView(ListView):

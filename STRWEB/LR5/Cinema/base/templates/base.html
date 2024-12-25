@@ -1,4 +1,5 @@
 <!doctype html>
+{%load static%}
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,15 +8,36 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Подосиновик</title>
     <link rel="icon" href="/static/cinema-svgrepo-com.svg">
-  <style>
-      div {
-          width: 70%;
-      }
-  </style>
+    <link rel='stylesheet' href="{% static "css/style.css" %}" >
+
 
 </head>
 <body>
 <header>
+  <div class="logo">
+  <img  src="/static/Logo.png" \>
+  {%if user.is_authenticated%}
+  <span class='user-block'>
+          <span>
+            {%if user.groups.get.name == 'Customer'%}
+            <a href="{% url 'user_orders'%}">{{user.get_username}}</a>
+            {%elif user.groups.get.name == 'Employee'%}
+            <a href="{% url 'employee_page'%}">{{user.get_username}}</a>
+            <a href="{% url 'movie_list'%}">Movies</a>
+            <a href="{% url 'ticket_statistics'%}">Statistics</a>
+            {%else%}
+            <a href="/admin">{{user.get_username}}</a>
+            {%endif%}
+            <a href="{% url 'logout'%}">Выйти</a>
+          </span>
+          <script src="{% static "/scripts/timer.js" %}"></script>
+          <div id="countdown"></div>
+        </span>
+  {%else%}
+  <a href="{% url 'login' %}" class='login-button' >Войти</a>
+  {%endif%}
+  </div>
+  <nav>
   <a href="{% url 'main' %}">Главная</a>
   <a href="{% url 'about' %}">О Компании</a>
   <a href="{% url 'news' %}">Новости</a>
@@ -25,33 +47,16 @@
   <a href="{% url 'vacancy' %}">Вакансии</a>
   <a href="{% url 'reviews' %}">Отзывы</a>
   <a href="{% url 'coupons' %}">Промокоды и Купоны</a>
-  <a href="{%url 'show_list'%}">Сеансы</a>
+  <a href="{% url 'show_list'%}">Сеансы</a>
+  </nav>
+
 </header>
 <main>
-{%if user.is_authenticated%}
-<span>
-        <span>
-          {%if user.groups.get.name == 'Customer'%}
-          <a href="{%url 'user_orders'%}">{{user.get_username}}</a>
-          {%elif user.groups.get.name == 'Employee'%}
-          <a href="{%url 'employee_page'%}">{{user.get_username}}</a>
-          <a href="{%url 'movie_list'%}">Movies</a>
-          <a href="{%url 'ticket_statistics'%}">Statistics</a>
-          {%else%}
-          <a href="/admin">{{user.get_username}}</a>
-          {%endif%}
-          <a href="{%url 'logout'%}">Выйти</a>
-        </span>
-      </span>
-{%else%}
-<a href="{%url 'login'%}">Войти</a>
-{%endif%}
 {% block head_text %}{% endblock head_text %}
 
-<div>
+
   {%block main_content %}
   {% endblock main_content%}
-</div>
 </main>
 </body>
 </html>

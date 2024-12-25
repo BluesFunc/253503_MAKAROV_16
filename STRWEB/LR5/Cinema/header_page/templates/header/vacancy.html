@@ -5,14 +5,16 @@
 
 {% block main_content%}
 {%if vacancies%}
-<ul>
-  {% for vacancy in vacancies%}
-  <li>
-    <h2>{{vacancy.position}}</h2>
-    <h3>Оклад: {{vacancy.salary_per_month}} рублей в месяц</h3>
-    <p>{{vacancy.description}}</p>
+<ul class="vacancies-list">
+  {% for vacancy in vacancies %}
+  <li class="vacancy-item">
+      <div class="vacancy-info">
+          <h2>{{ vacancy.position }}</h2>
+          <h3>Оклад: {{ vacancy.salary_per_month }} рублей в месяц</h3>
+          <p>{{ vacancy.description }}</p>
+      </div>
   </li>
-  {% endfor%}
+  {% endfor %}
 </ul>
 {% endif %}
 

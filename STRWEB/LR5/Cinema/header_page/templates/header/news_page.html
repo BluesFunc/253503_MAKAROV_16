@@ -1,9 +1,19 @@
 {% extends "base.html" %}
 {% block main_content %}
+<h1>{{ news.header }}</h1>
+<article>
     <h1>{{ news.header }}</h1>
-    <section>
-        <img src="{{ news.image_url }}">
-        <p>{{ news.description }}</p>
+    <section class="article-content">
+        <img src="{{ news.image_url }}" alt="News Image">
+        <p class="highlighted-text">
+        {{ news.description }}
+        </p>
+        <ul class="custom-list">
+            <li>First point of interest</li>
+            <li>Second key highlight</li>
+            <li>Additional relevant info</li>
+        </ul>
     </section>
+</article>
 
 {% endblock %}

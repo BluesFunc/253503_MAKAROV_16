@@ -4,9 +4,10 @@
 {% endblock head_text %}
 
 {% block main_content %}
-    <ul style=" list-style-type: none;">
+<div class="faq-section">
+    
         {% for question in questions %}
-            <li>
+        <div class="faq-item">
                 <h2>{{ question.issuer }}</h2>
                 <details>
                     <summary>  {{ question.question_text }}?</summary>
@@ -15,7 +16,7 @@
                 </details>
 
                 <strong>{{ question.answer_date }}</strong>
-            </li>
+        </div>
         {% endfor %}
-    </ul>
+</div >
 {% endblock main_content %}
