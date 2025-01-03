@@ -1,0 +1,2 @@
+DEBUG=cinema_website:* & npm run devstart 
+npm run dev 

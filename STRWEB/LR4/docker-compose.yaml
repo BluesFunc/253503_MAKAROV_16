@@ -1,0 +1,16 @@
+
+services:
+  mongo:
+    container_name: mongodb
+    image: mongo:6
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: alex
+      MONGO_INITDB_ROOT_PASSWORD: 1234
+    volumes:
+      - data:/home/node/data:rw
+
+volumes:
+  data:
